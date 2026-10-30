@@ -17,7 +17,7 @@ jobs:
         run: npm run test
   build:
     outputs:
-      file-name: "{{ steps.file_name1.outputs.file_name }}"
+      file-name: "${{ steps.file_name1.outputs.file_name }}"
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +44,7 @@ jobs:
         with:
             name: my-artifact
       - name: print filename
-        run: echo "{{ needs.build.outputs.file_name }}"
+        run: echo "${{ needs.build.outputs.file_name }}"
       - name: list artifacts
         run: ls
       - name: Deploy
