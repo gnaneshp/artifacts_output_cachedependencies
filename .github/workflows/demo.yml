@@ -31,7 +31,7 @@ jobs:
         id: file_name1
         run: |
          find dist/assets/*.js -type f -execdir echo 'file_name={}' >> $GITHUB_OUTPUT ';'
-         echo "GITHUB_OUTPUT"
+         echo "$GITHUB_OUTPUT"
       - name: upload artifacts
         uses: actions/upload-artifact@v7
         with:
